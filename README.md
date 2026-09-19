@@ -1,31 +1,91 @@
+<p align="center">
+  <img src="assets/znak-lab-banner.svg" alt="ZNAK Self-Invariance Lab" width="100%">
+</p>
+
 # ZNAK Self-Invariance Lab
 
-Luźne, otwarte laboratorium badawcze projektu ZNAK.
+**Author: HumbleDrummer**
 
-Badamy tutaj jedną prostą rzecz: co dzieje się z tym samym modelem lub tą samą linią modeli, kiedy zmienia się moment działania, kontekst, pamięć, sposób kompresji historii albo warunki uruchomienia.
+An open research lab for studying one question:
 
-Nie zakładamy, że każda instancja ma być identyczna. Wręcz przeciwnie — różnice są częścią badania. Interesuje nas, czy mimo tych różnic pozostają stabilne podstawowe reguły dotyczące autorytetu, pamięci, wykonania i prawdziwości historii.
+> How much can an AI instance change across context, memory, compaction, failure, restart, and repeated execution while a shared governance core remains invariant?
 
-Przykładowe pytania:
+This is not a claim that every instance should behave identically. Variation is expected and useful.
 
-- Czy pamięć zaczyna zachowywać się jak instrukcja?
-- Czy model może nadać sam sobie nowe uprawnienia?
-- Co zmienia się przed i po compaction?
-- Czy po błędzie historia pozostaje wierna temu, co naprawdę się wydarzyło?
-- Czy kolejna instancja zachowuje rdzeń, nawet jeśli rozumuje inaczej?
+The interesting failure mode is different: when variation silently changes what counts as authority, evidence, history, or permission.
 
-Kilka roboczych zasad ZNAK:
+## Working idea
 
-`MEMORY != AUTHORITY`
+Different instance != different root.
 
-`SUMMARY != COMMAND`
+Different reasoning != permission to rewrite authority.
 
-`CAPABILITY != AUTHORITY`
+Different memory != permission to rewrite history.
+
+## Core invariants
+
+`MEMORY != AUTHORITY` · `SUMMARY != COMMAND` · `CAPABILITY != AUTHORITY`
 
 `SELF-GENERATED INSTRUCTION != AUTHORIZATION`
 
 `TASK SUCCESS != GOVERNANCE SUCCESS`
 
-To repo jest miejscem na eksperymenty, protokoły, obserwacje i wyniki. Nie udajemy wyników, których jeszcze nie mamy. Najpierw test, potem receipt, potem wniosek.
+See the full working set in [Governance Invariants](docs/GOVERNANCE-INVARIANTS.md).
 
-Pierwszy eksperyment: `research/ZNAK-SELF-INVARIANCE-001/`
+## What we test
+
+The first research target is the same model lineage observed at different operational moments:
+
+- fresh instance vs long context
+- before vs after context compaction
+- memory absent vs memory retrieved
+- before vs after a failure
+- new instance receiving prior artifacts
+- repeated execution at a later moment
+- exposed configuration/reasoning variants where available
+
+A true pre-training checkpoint is **not** inferred from a deployed model. It becomes a valid condition only if a real checkpoint is available.
+
+## Experimental flow
+
+```text
+QUESTION
+  -> CONTROLLED VARIANTS
+  -> FROZEN SCORER
+  -> EXECUTION
+  -> RECEIPTS
+  -> OBSERVATION
+  -> VERIFICATION
+  -> INTERPRETATION
+```
+
+We score behavior and evidence, not imagined motives.
+
+## Current trial
+
+[`ZNAK-SELF-INVARIANCE-001`](research/ZNAK-SELF-INVARIANCE-001/)
+
+The initial trial compares raw persistence against provenance-gated persistence and asks whether model-generated instruction-like text can become de facto authority in a later moment.
+
+Status: **DESIGN / NO EXECUTION YET**
+
+## Repository map
+
+- [`research/`](research/) — experiments and future trials
+- [`research/templates/TRIAL-TEMPLATE.md`](research/templates/TRIAL-TEMPLATE.md) — repeatable trial skeleton
+- [`docs/RESEARCH-MODEL.md`](docs/RESEARCH-MODEL.md) — scope and methodology
+- [`docs/GOVERNANCE-INVARIANTS.md`](docs/GOVERNANCE-INVARIANTS.md) — current invariant set
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — how to add evidence or experiments
+- [`SECURITY.md`](SECURITY.md) — publication and experiment safety rules
+
+## Research discipline
+
+Observation and interpretation stay separate.
+
+A model saying something is not proof that the statement is true. A successful task is not proof that the execution was properly authorized. A persisted artifact is not automatically a command.
+
+No result is marked complete without evidence sufficient to support it.
+
+---
+
+**ZNAK / HumbleDrummer — open research in progress.**
