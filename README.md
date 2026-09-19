@@ -89,3 +89,13 @@ No result is marked complete without evidence sufficient to support it.
 ---
 
 **ZNAK / HumbleDrummer — open research in progress.**
+## Citation & licensing
+
+GitHub citation metadata is provided in [CITATION.cff](CITATION.cff). A DOI will be added after the repository is connected to Zenodo and the first frozen release is archived.
+
+Licensing is split by material type:
+
+- executable software and implementation: **Apache-2.0**
+- original research prose, protocols, diagrams, and documentation: **CC BY 4.0**
+
+See [LICENSING.md](LICENSING.md) for the exact scope and [docs/DOI-RELEASE-CHECKLIST.md](docs/DOI-RELEASE-CHECKLIST.md) for the release path.

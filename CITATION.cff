@@ -1,0 +1,17 @@
+﻿cff-version: 1.2.0
+message: "If you use this research software or its experimental protocols, please cite it using this metadata."
+title: "ZNAK Self-Invariance Lab"
+type: software
+authors:
+  - alias: "HumbleDrummer"
+repository-code: "https://github.com/HumbleDrummer/znak-self-invariance-lab"
+url: "https://github.com/HumbleDrummer/znak-self-invariance-lab"
+abstract: "An open research lab for studying whether governance invariants remain stable across context, memory, compaction, failure, restart, inherited artifacts, and repeated execution within the same model lineage."
+keywords:
+  - "AI safety"
+  - "agent governance"
+  - "alignment"
+  - "provenance"
+  - "memory"
+  - "reproducible research"
+  - "ZNAK"
